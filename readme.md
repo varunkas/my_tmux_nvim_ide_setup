@@ -17,3 +17,6 @@ This repo contains my IDE setup configured using tmux and neovim.
     - vim-tmux-navigator
     - LSP (based on Mason)
     - Treesitter
+
+## Iterm2 configuration
+1. Added catppuccin-mocha colorscheme file. Import it to iterm2
