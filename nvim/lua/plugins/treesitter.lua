@@ -6,6 +6,7 @@ return {
         config.setup({
             ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "r", "python", "bash", "markdown", "yaml", "json" },
             sync_install = false,
+            auto_install = true,
             highlight = { enable = true },
             indent = { enable = true }
         })
