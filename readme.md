@@ -9,4 +9,11 @@ This repo contains my IDE setup configured using tmux and neovim.
 4. Start tmux
 
 ## NEOVIM configuration
-
+1. Most of the NEOVIM configuration is based on YouTube Video by Typecraft and kickstart.nvim repo.
+2. Copy the  nvim directory into ~/.config/
+3. (Re)start nvim and you should be good to go.
+4. The configuration is super modular and has the following main plugins:
+    - Telescope
+    - vim-tmux-navigator
+    - LSP (based on Mason)
+    - Treesitter
