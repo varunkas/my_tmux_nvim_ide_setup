@@ -2,13 +2,26 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
     config = function()
-      -- setup Telescope
+      -- Load the fzf extension
+      require('telescope').load_extension('fzf')
+      -- setup Telescope with its keymappings
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[F]ind [F]iles" })
       vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-      vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+      vim.keymap.set("n", "<leader>gf", builtin.live_grep, { desc = "[G]rep [F]iles" })
+      vim.keymap.set('n', '<leader>gh', require('telescope.builtin').help_tags, { desc = '[G]rep [H]elp' })
+      vim.keymap.set('n', '<leader>gk', require('telescope.builtin').keymaps, { desc = '[G]rep [K]keymaps' })
       vim.keymap.set('n', '<leader>/', function()
         require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
@@ -18,6 +31,7 @@ return {
 
     end
   },
+
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()
