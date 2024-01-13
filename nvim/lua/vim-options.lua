@@ -17,7 +17,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- set no line wrap by default
-vim.opt_local.wrap = false
+vim.o.wrap = false
 
 -- Mouse active
 vim.o.mouse = "a"
@@ -27,9 +27,11 @@ vim.opt.number = true
 vim.opt.relativenumber=true
 
 -- Folding options
-vim.opt.foldopen = "hor,search"
--- vim.opt.foldmethod = "indent"
-vim.opt.foldcolumn = "2"
+--vim.opt.foldopen = "hor,search"
+--vim.opt.foldmethod = "expr"
+--vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--vim.opt.foldcolumn = "1"
+--vim.opt.foldlevel = 3
 
 -- Add cursorline
 vim.opt.cursorline = true

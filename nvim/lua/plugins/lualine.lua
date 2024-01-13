@@ -1,34 +1,41 @@
 return {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-        options = {
-            theme = "auto",
-            component_separators = '|',
-            section_separators = { left = '', right = '' }
-        },
-    },
-    sections = {
+  'nvim-lualine/lualine.nvim',
+  config = function()
+    require('lualine').setup({
+      options = {
+        theme = "auto",
+        component_separators = '|',
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = {     -- Filetypes to disable lualine for.
+          statusline = { 'neo-tree' },       -- only ignores the ft for statusline.
+          winbar = {},
+        }
+        --        globalstatus = true
+      },
+      sections = {
         lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
+          { 'mode', separator = { left = '' }, right_padding = 2 },
         },
-        lualine_b = { 'filename', 'branch' },
-        lualine_c = { 'fileformat' },
-        lualine_x = {},
-        lualine_y = { 'filetype', 'progress' },
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {{'filename', path = 1, }},
+        lualine_x = {'encoding', 'fileformat'},
+        lualine_y = {'filetype'},
         lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
+          { 'progress', separator = { right = '' }, left_padding = 2 },
         },
-    },
-    inactive_sections = {
-        lualine_a = { 'filename' },
+      },
+      inactive_sections = {
+        lualine_a = {{'filename', path = 1, }},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { 'location' },
-    },
-    tabline = {},
-    extensions = {},
+        lualine_z = { 'filetype' },
+      },
+      tabline = {},
+      extensions = {},
+    })
+  end
 }
+
+
