@@ -8,8 +8,10 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua, -- lua
-					null_ls.builtins.completion.spell,
+					null_ls.builtins.diagnostics.selene, -- lua
+					null_ls.builtins.completion.spell, -- everything
 					null_ls.builtins.code_actions.proselint, -- english for Markdown
+					null_ls.builtins.diagnostics.proselint, -- english for Markdown
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.isort, -- python for sorting imports
 					null_ls.builtins.formatting.prettier, -- yaml, markdown, json, html etc.
