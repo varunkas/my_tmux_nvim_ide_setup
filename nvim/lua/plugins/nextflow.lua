@@ -1,0 +1,3 @@
+return {
+    'varunkas/nextflow-vim',
+}
