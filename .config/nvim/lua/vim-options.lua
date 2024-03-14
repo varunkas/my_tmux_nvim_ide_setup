@@ -26,7 +26,10 @@ vim.o.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber=true
 
--- Folding options
+-- set full color that matches with alacritty and tmux
+vim.o.termguicolors = true
+
+-- Folding options. This has been achieved using a the code-folding.lua file
 --vim.opt.foldopen = "hor,search"
 --vim.opt.foldmethod = "expr"
 --vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -35,7 +38,7 @@ vim.opt.relativenumber=true
 
 -- Add cursorline
 vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number,screenline"
+vim.opt.cursorlineopt = "number"
 
 -- Keep a few lines at the bottom so the cursor never reaches the bottommost line
 vim.opt.scrolloff = 5

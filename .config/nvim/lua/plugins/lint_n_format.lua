@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local null_ls = require("null-ls")
-			local augroup = vim.api.nvim_create_augroup("FormatOnWrite", {})
+			-- local augroup = vim.api.nvim_create_augroup("FormatOnWrite", {})
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua, -- lua
@@ -14,10 +14,17 @@ return {
 					null_ls.builtins.formatting.beautysh, -- shell
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.isort, -- python for sorting imports
-					null_ls.builtins.diagnostics.yamllint, --yaml
-					null_ls.builtins.formatting.prettier, -- yaml, markdown, json, html etc.
-					null_ls.builtins.diagnostics.markdownlint, -- markdown
-					null_ls.builtins.formatting.markdown_toc, -- markdown
+					null_ls.builtins.diagnostics.yamllint.with({
+            extra_args = {"-c", vim.fn.expand("~/.config/yamllint/config.yaml")}
+          }), --yaml
+					null_ls.builtins.formatting.yamlfmt, --yaml
+					null_ls.builtins.formatting.prettier.with({
+            disabled_filetypes = {"yaml", }, --[[ "markdown"  ]]
+            extra_filetypes = {"toml"}
+          }), -- yaml, markdown, json, html etc.
+					null_ls.builtins.diagnostics.markdownlint.with({
+            extra_args = {"--disable", "MD013"}
+          }), -- markdown
 					null_ls.builtins.formatting.format_r, -- R
 					null_ls.builtins.formatting.styler, -- R
 				},

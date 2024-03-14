@@ -22,23 +22,20 @@ return {
 				"n",
 				"<leader><space>",
 				builtin.buffers,
-				{ desc = "[ ] Find existing buffers using Telescop" }
+				{ desc = "[ ] Find existing buffers using Telescope" }
 			)
-			vim.keymap.set("n", "<leader>gf", builtin.live_grep, { desc = "[G]rep [F]iles using Telescop" })
-			vim.keymap.set(
-				"n",
-				"<leader>gh",
-				require("telescope.builtin").help_tags,
-				{ desc = "[G]rep [H]elp using Telescop" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>gk",
-				require("telescope.builtin").keymaps,
-				{ desc = "[G]rep [K]keymaps using Telescop" }
-			)
+			vim.keymap.set("n", "<leader>gf", builtin.live_grep, { desc = "[G]rep [F]iles using Telescope" })
+			vim.keymap.set("n", "<leader>gh", builtin.help_tags, { desc = "[G]rep [H]elp using Telescope" })
+			vim.keymap.set("n", "<leader>gs", function()
+				builtin.grep_string({
+          disable_coordinates = true,
+					grep_open_files = true,
+					use_regex = false,
+				})
+			end, { desc = "[G]rep current [S]tring" })
+			vim.keymap.set("n", "<leader>gk", builtin.keymaps, { desc = "[G]rep [K]keymaps using Telescope" })
 			vim.keymap.set("n", "<leader>/", function()
-				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 					winblend = 10,
 					previewer = false,
 				}))

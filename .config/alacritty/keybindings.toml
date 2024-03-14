@@ -1,0 +1,6 @@
+[keyboard]
+bindings = [
+  # Navigate to left and right by word
+  { key = "Right", mods = "Option", chars = "\u001BF" },
+  { key = "Left", mods = "Option", chars = "\u001BB" },
+]

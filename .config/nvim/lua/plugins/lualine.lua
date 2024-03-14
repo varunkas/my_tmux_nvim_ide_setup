@@ -10,7 +10,7 @@ return {
 					statusline = { "neo-tree" }, -- only ignores the ft for statusline.
 					winbar = {},
 				},
-				--        globalstatus = true
+				globalstatus = false,
 			},
 			sections = {
 				lualine_a = {
@@ -30,7 +30,7 @@ return {
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = { "filetype" },
+				lualine_z = {},
 			},
 			tabline = {},
 			extensions = {},

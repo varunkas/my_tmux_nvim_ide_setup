@@ -8,6 +8,17 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
+			filesystem = {
+				filtered_items = {
+					hide_dotfiles = true,
+					never_show = {
+						".DS_Store",
+					},
+					always_show = {
+						".config",
+					},
+				},
+			},
 			close_if_last_window = true,
 			default_component_configs = {
 				container = {

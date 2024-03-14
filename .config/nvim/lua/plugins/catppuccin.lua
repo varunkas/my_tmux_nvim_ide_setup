@@ -6,9 +6,9 @@ return {
 		require("catppuccin").setup({
 			flavour = "mocha",
 			integrations = {
+				markdown = true,
 				cmp = true,
 				harpoon = true,
-				gitsigns = true,
 				neotree = true,
 				treesitter = true,
 				notify = false,
@@ -16,9 +16,11 @@ return {
 				ufo = true,
 			},
 			background = {
-        -- light = "latte",
-				dark = "mocha",
+				light = "latte",
+				-- dark = "mocha",
 			},
+			-- transparent_background = false,
+			show_end_of_buffer = true,
 		})
 		vim.cmd.colorscheme("catppuccin")
 	end,

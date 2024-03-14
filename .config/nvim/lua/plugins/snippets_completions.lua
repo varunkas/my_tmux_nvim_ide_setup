@@ -15,9 +15,9 @@ return {
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
 			local ls = require("luasnip")
-			vim.keymap.set({ "i" }, "<C-K>", function()
+			--[[ vim.keymap.set({ "i" }, "<C-I>", function()
 				ls.expand()
-			end, { silent = true, desc = "Expand snippet" })
+			end, { silent = true, desc = "[I]nsert [S]nippet", remap = false }) ]] -- This causes problems with Tab because alacritty send Tab and C-I same thing
 			vim.keymap.set({ "i", "s" }, "<C-L>", function()
 				ls.jump(1)
 			end, { silent = true, desc = "Jump to next snippet field" })
@@ -44,12 +44,14 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-E>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-I>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-K>"] = cmp.mapping.select_prev_item(),
+          ["<C-J>"] = cmp.mapping.select_next_item(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lua" },
+					{ name = "luasnip", max_item_count = 2 },
 					{ name = "nvim_lsp", max_item_count = 5 },
-					{ name = "luasnip", max_item_count = 5 },
 					{ name = "buffer", max_item_count = 3, option = { keyword_length = 5 } },
 				}),
 				formatting = {
@@ -73,7 +75,7 @@ return {
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
-					{ name = "buffer" },
+					{ name = "buffer", max_item_count = 3 },
 				},
 			})
 
@@ -81,9 +83,9 @@ return {
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
-					{ name = "path" },
+					{ name = "path", max_item_count = 3 },
 				}, {
-					{ name = "cmdline" },
+					{ name = "cmdline", max_item_count = 3 },
 				}),
 			})
 		end,

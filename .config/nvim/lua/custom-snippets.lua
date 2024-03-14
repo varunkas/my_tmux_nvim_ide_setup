@@ -26,12 +26,25 @@ local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
+-- Snippets for nextflow workflow
 ls.add_snippets("nextflow", {
 	s("workflow", {
 		t({ "workflow " }),
 		i(1, "name"),
-		t(" { "),
-		i(2, "body"),
-		t("}"),
+		t({ " {", "" }),
+		t({ "\ttag " }),
+		i(2, "tag"),
+		t({ "", "\tinput:", "" }),
+		t({ "\t\ttype " }),
+		i(3, "value"),
+		t({ "", "\toutput:", "" }),
+		t({ "\t\ttype " }),
+		i(3, "value"),
+		t({ "", "\tshell:", "" }),
+		t({ "", "\t\t'''", "" }),
+		t({ "\t\t" }),
+		i(3, "script"),
+		t({ "", "\t\t'''", "" }),
+		t({ "", "}" }),
 	}),
 })
