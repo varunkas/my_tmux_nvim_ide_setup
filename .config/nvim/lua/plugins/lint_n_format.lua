@@ -8,10 +8,10 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua, -- lua
-					null_ls.builtins.diagnostics.luacheck, -- lua
-					null_ls.builtins.diagnostics.shellcheck, -- shell
-					null_ls.builtins.code_actions.shellcheck, -- shell
-					null_ls.builtins.formatting.beautysh, -- shell
+					null_ls.builtins.diagnostics.selene.with({
+            only_local = "/Users/sreenivasan/.cargo/bin/selene", -- This is becase as of June 2024, Mason was not installing MacOS compatible selene executable
+          }), -- lua
+					null_ls.builtins.formatting.shfmt, -- shell
 					null_ls.builtins.formatting.black, -- python
 					null_ls.builtins.formatting.isort, -- python for sorting imports
 					null_ls.builtins.diagnostics.yamllint.with({

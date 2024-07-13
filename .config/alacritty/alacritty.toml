@@ -23,7 +23,12 @@ blink_timeout = 4
 [window]
 padding = { x = 10, y = 5 }
 dynamic_padding = true
-decorations =  "Full"
-# opacity = 0.75
-# blur = true
+decorations = "buttonless"
+opacity = 0.80
+blur = true
 startup_mode =  "Maximized"
+option_as_alt = "OnlyRight"
+
+[[keyboard.bindings]]
+key = "NumpadEnter"
+chars = "\r"

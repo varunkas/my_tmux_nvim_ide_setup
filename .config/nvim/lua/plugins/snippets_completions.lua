@@ -17,7 +17,8 @@ return {
 			local ls = require("luasnip")
 			--[[ vim.keymap.set({ "i" }, "<C-I>", function()
 				ls.expand()
-			end, { silent = true, desc = "[I]nsert [S]nippet", remap = false }) ]] -- This causes problems with Tab because alacritty send Tab and C-I same thing
+			end, { silent = true, desc = "[I]nsert [S]nippet", remap = false }) ]]
+			-- This causes problems with Tab because alacritty send Tab and C-I same thing
 			vim.keymap.set({ "i", "s" }, "<C-L>", function()
 				ls.jump(1)
 			end, { silent = true, desc = "Jump to next snippet field" })
@@ -45,8 +46,8 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					["<C-E>"] = cmp.mapping.abort(),
 					["<C-I>"] = cmp.mapping.confirm({ select = true }),
-          ["<C-K>"] = cmp.mapping.select_prev_item(),
-          ["<C-J>"] = cmp.mapping.select_next_item(),
+					["<C-K>"] = cmp.mapping.select_prev_item(),
+					["<C-J>"] = cmp.mapping.select_next_item(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lua" },

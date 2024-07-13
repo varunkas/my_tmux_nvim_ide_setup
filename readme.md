@@ -27,3 +27,4 @@ Copy the repo into the ~ directory and should be good to go :)
     - vim-tmux-navigator
     - LSP (based on Mason)
     - Treesitter
+    - None-ls for Linting and Formatting

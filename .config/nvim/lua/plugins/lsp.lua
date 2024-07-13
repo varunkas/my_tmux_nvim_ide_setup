@@ -13,6 +13,7 @@ return {
 					"lua_ls",
 					"r_language_server",
 					"pylsp",
+          "bashls",
 					-- "hydra_lsp",
 					"jedi_language_server",
 					"groovyls",
@@ -39,18 +40,19 @@ return {
 			})
 			lspconfig.r_language_server.setup({ capabilities = capabilities })
 			lspconfig.pylsp.setup({ capabilities = capabilities })
-			-- lspconfig.hydra_lsp.setup({ capabilities = capabilities })
 			lspconfig.jedi_language_server.setup({ capabilities = capabilities })
 			lspconfig.groovyls.setup({ capabilities = capabilities })
 			lspconfig.yamlls.setup({ capabilities = capabilities })
+			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.taplo.setup({ capabilities = capabilities })
+			lspconfig.lua_ls.setup({ capabilities = capabilities })
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Buffer Hover"})
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[G]o to [I]mplementation" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efintion" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
 			vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "[C]ode [D]iagnostics" })
-			vim.keymap.set("n", "<leader>vr", vim.lsp.buf.rename, { desc = "[V]ariable [R]ename" })
+			vim.keymap.set("n", "<leader>rv", vim.lsp.buf.rename, { desc = "[R]ename [V]ariable " })
 		end,
 	},
 	{ "folke/neodev.nvim", opts = {} },

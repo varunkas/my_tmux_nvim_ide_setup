@@ -9,7 +9,7 @@ return {
 
 		-- Append to harpoon list
 		map("n", "<leader>a", function()
-			harpoon:list():append()
+			harpoon:list():add()
 		end, { desc = "[A]ppend to Harpoon list" })
 		-- Show harpoon list
 		map("n", "<leader>h", function()
@@ -33,9 +33,9 @@ return {
 		-- Toggle previous & next buffers stored within Harpoon list
 		map("n", "<leader>t", function()
 			harpoon:list():prev()
-		end, { desc = "show [H]arpoon" })
+		end, { desc = "Previous Harpoon Item" })
 		map("n", "<leader>z", function()
 			harpoon:list():next()
-		end, { desc = "show [H]arpoon" })
+		end, { desc = "Next Harpoon Item" })
 	end,
 }

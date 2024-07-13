@@ -17,6 +17,7 @@ return {
 			require("telescope").load_extension("fzf")
 			-- setup Telescope with its keymappings
 			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<leader>rf", builtin.oldfiles, { desc = "search through [R]ecent [F]iles using Telescope" })
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch for [F]ile using Telescope" })
 			vim.keymap.set(
 				"n",

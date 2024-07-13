@@ -1,3 +1,12 @@
+-- Load globally set vim-options
+require("options")
+
+-- Load globally set vim keybindings
+require("keymaps")
+--
+-- Load custom autocmds, if any
+require("autocmds")
+
 -- Install plugin manager (lazy.vim)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -12,9 +21,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load globally set vim-options
-require("vim-options")
-
 -- Install/Load and setup all the plugins for Lazy
 require("lazy").setup("plugins", {
 	change_detection = {
@@ -24,12 +30,8 @@ require("lazy").setup("plugins", {
     colorscheme = { "catppuccin" }
   }
 })
-
--- Load globally set vim keybindings
-require("keybindings")
 --
--- Load custom autocmds, if any
-require("autocmds")
+
 
 -- load custom capabiliites
 require("custom-snippets")
