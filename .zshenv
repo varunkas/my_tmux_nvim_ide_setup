@@ -18,7 +18,10 @@ export PATH="/usr/local/texlive/2023/bin/universal-darwin:${PATH}"
 export FZF_DEFAULT_COMMAND='fd'
 
 # include several CDPATHs
-export CDPATH=".:/Users/sreenivasan/Documents/Works/scripts"
+# export CDPATH=".:/Users/sreenivasan/Documents/Works/scripts"
+
+# Change default editor
+# export EDITOR=nvim
 
 # export XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="$HOME/.config/"

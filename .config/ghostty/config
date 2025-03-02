@@ -1,0 +1,31 @@
+# Adjust fonts
+font-family = MesloLGM Nerd Font Mono
+font-size = 19
+font-thicken = true
+adjust-cell-width = -10%
+
+# Colors
+theme = catppuccin-mocha
+background-opacity = 0.9
+background-blur-radius = 20
+
+# Cursor and mouse
+mouse-hide-while-typing = true
+cursor-style-blink = true
+# Keep the cursor style to block
+shell-integration-features = no-cursor
+# this changes the color of the cursor based on neighboring syntax. Leave it true
+cursor-invert-fg-bg = true
+
+# Keyboards and shortcuts
+macos-option-as-alt = right
+
+# Window
+macos-titlebar-style = transparent
+title = " "
+macos-titlebar-proxy-icon = hidden
+
+# Icon
+macos-icon = custom-style
+macos-icon-ghost-color = 89b4fa
+macos-icon-screen-color = cdd6f4,1e1e2e

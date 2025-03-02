@@ -34,6 +34,13 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		opts = function(_, opts)
+			opts.sources = opts.sources or {}
+			table.insert(opts.sources, {
+				name = "lazydev",
+				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+			})
+		end,
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
@@ -51,9 +58,9 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lua" },
-					{ name = "luasnip", max_item_count = 2 },
-					{ name = "nvim_lsp", max_item_count = 5 },
-					{ name = "buffer", max_item_count = 3, option = { keyword_length = 5 } },
+					{ name = "luasnip", max_item_count = 7 },
+					{ name = "nvim_lsp", max_item_count = 7 },
+					{ name = "buffer", max_item_count = 7, option = { keyword_length = 5 } },
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
@@ -65,6 +72,8 @@ return {
 							buffer = "[Buf]",
 						},
 					}),
+					fields = { "abbr", "kind", "menu" },
+					expandable_indicator = true,
 				},
 				experimental = { ghost_text = true },
 				view = {
@@ -72,21 +81,22 @@ return {
 				},
 			})
 
-			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer", max_item_count = 3 },
-				},
-			})
-
 			-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-			cmp.setup.cmdline(":", {
+			cmp.setup.cmdline({ ":" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
-					{ name = "path", max_item_count = 3 },
+					{ name = "path", max_item_count = 7 },
 				}, {
-					{ name = "cmdline", max_item_count = 3 },
+					{ name = "cmdline", max_item_count = 7 },
+				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
+			})
+			--
+			-- Use cmdline & path source for 'searching' (if you enabled `native_menu`, this won't work anymore).
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "buffer", max_item_count = 7 },
 				}),
 			})
 		end,

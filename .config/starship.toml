@@ -92,6 +92,8 @@ success_symbol = '[❯](fg:green)'
 error_symbol = '[❯](fg:red)'
 
 # Disable the package module, hiding it from the prompt completely
+[docker_context]
+disabled = true
 [rlang]
 disabled = true
 [python]

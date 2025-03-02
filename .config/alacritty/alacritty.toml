@@ -1,3 +1,4 @@
+[general]
 import = [
   "~/.config/alacritty/themes/themes/catppuccin_mocha.toml",
   "/Users/sreenivasan/.config/alacritty/keybindings.toml",
@@ -23,10 +24,10 @@ blink_timeout = 4
 [window]
 padding = { x = 10, y = 5 }
 dynamic_padding = true
-decorations = "buttonless"
-opacity = 0.80
+decorations = "full"
+# opacity = 0.70
 blur = true
-startup_mode =  "Maximized"
+# startup_mode =  "Fullscreen"
 option_as_alt = "OnlyRight"
 
 [[keyboard.bindings]]
