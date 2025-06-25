@@ -30,13 +30,6 @@ require("lazy").setup("plugins", {
     colorscheme = { "catppuccin" }
   }
 })
---
-
 
 -- load custom capabiliites
 require("custom-snippets")
-
--- load nextflow language server
--- require('lspconfig').nextflow_ls.setup{
---   capabilities = vim.lsp.protocol.make_client_capabilities(),
--- }
