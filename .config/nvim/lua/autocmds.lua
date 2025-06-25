@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
   end,
 })
 
+-- Create an autocommand for adding a shortcut to format code
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local formatfunction = function()
