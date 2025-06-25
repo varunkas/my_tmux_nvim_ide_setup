@@ -28,21 +28,6 @@ return {
 					-- null_ls.builtins.formatting.format_r, -- R
 					null_ls.builtins.formatting.styler, -- R
 				},
-				on_attach = function(client)
-					local formatfunction = function()
-						if client.supports_method("textDocument/formatting") then
-							vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-						else
-							vim.print("no formatting")
-						end
-					end
-					vim.keymap.set(
-						"n",
-						"<leader>fc",
-						formatfunction,
-						{ desc = "[F]ormat [C]ode asynchronously", buffer = true }
-					)
-				end,
 			})
 		end,
 	},
